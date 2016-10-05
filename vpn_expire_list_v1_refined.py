@@ -18,6 +18,6 @@ for graduate in graduate_user_ids:
 	if  vpn_account_name in vpn_account_ids:
 		vpn_accounts_to_expire.append(vpn_account_name)
 
-with open("examples/vpn_accounts_to_expire_v1.csv", "wb") as f:
+with open("examples/vpn_accounts_to_expire_v1_refined.csv", "wb") as f:
     writer = csv.writer(f)
     writer.writerow(vpn_accounts_to_expire)
