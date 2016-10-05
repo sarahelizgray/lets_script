@@ -5,10 +5,9 @@ import csv
 fake = Faker()
 
 ALL_ACCOUNTS  = 1000
-STUDENT_COUNT = 500
-GRADUATE_COUNT = 350
-COLLEGE_LEAVE_COUNT = 50
-DEANS_LEAVE_COUNT = 100
+GRADUATE_COUNT = int(ALL_ACCOUNTS * .35)
+COLLEGE_LEAVE_COUNT = int(ALL_ACCOUNTS * .05)
+DEANS_LEAVE_COUNT = int(ALL_ACCOUNTS * .1)
 
 def make_user_ids(count):
 	account_ids = []
@@ -31,8 +30,8 @@ college_leave_index = GRADUATE_COUNT + COLLEGE_LEAVE_COUNT
 deans_leave_index = college_leave_index + DEANS_LEAVE_COUNT
 
 graduates = all_accounts[:GRADUATE_COUNT]
-college_leave = all_accounts[GRADUATE_COUNT:college_leave_index]
-deans_leave = all_accounts[college_leave_index: deans_leave_index]
+college_leave = all_accounts[GRADUATE_COUNT : college_leave_index]
+deans_leave = all_accounts[college_leave_index : deans_leave_index]
 noise = all_accounts[deans_leave_index:]	
 
 #make a subset of those students as vpn account holders
