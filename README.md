@@ -7,8 +7,8 @@ see the evolution of a script
 pip install -r requirements.txt
 ```
 
-## Generate Sample Files
-Tune constants as needed
+## Generate Example Files
+Tune constants as needed.
 
 ```
 python make_user_lists.py
