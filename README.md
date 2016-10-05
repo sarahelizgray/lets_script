@@ -13,3 +13,9 @@ Tune constants as needed.
 ```
 python make_user_lists.py
 ```
+
+## Run Tests
+
+```
+py.test
+```

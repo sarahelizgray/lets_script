@@ -1,0 +1,3 @@
+import pytest
+import lets_script.vpn_expire_list_v1_tested
+
