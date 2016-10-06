@@ -3,9 +3,9 @@
 
 import csv
 
-GRADUATES = "examples/graduates.csv"
-VPN_ACCOUNTS = "examples/vpn_list.csv"
-OUTPUT_FILE = "examples/vpn_accounts_to_expire_v1_refined.csv"
+GRADUATES = "lets_script/examples/graduates.csv"
+VPN_ACCOUNTS = "lets_script/examples/vpn_list.csv"
+OUTPUT_FILE = "lets_script/examples/vpn_accounts_to_expire_v1_refined.csv"
 
 def get_ids_from_file(input_file):
 	with open(input_file, 'rb') as f:
