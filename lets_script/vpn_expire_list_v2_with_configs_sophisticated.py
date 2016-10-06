@@ -35,12 +35,7 @@ def get_eligible_deans_leave_ids(deans_leave_df, year):
     oldies = deans_leave_df[deans_leave_df['year'] <= int(year)]
     return oldies['name'].tolist()
 
-if __name__ == "__main__":
-    Config = ConfigParser.ConfigParser()
-    Config.read(sys.argv[1])
-
-    vpn_account_ids = get_ids_from_file(Config.get('VPN Accounts', 'path'))
-
+def get_all_eligible_ids(Config):
     all_eligible_ids = []
     for student_category in ['Graduates', 'College Leave', 'Deans Leave']:
         if Config.has_section(student_category):
@@ -50,6 +45,16 @@ if __name__ == "__main__":
                 all_eligible_ids += deans_leave_ids
             else:
                 all_eligible_ids += get_ids_from_file(Config.get(student_category, 'path'))
+    return all_eligible_ids
+
+
+if __name__ == "__main__":
+    Config = ConfigParser.ConfigParser()
+    Config.read(sys.argv[1])
+
+    vpn_account_ids = get_ids_from_file(Config.get('VPN Accounts', 'path'))
+
+    all_eligible_ids = get_all_eligible_ids(Config)
 
     vpn_accounts_to_expire = get_expire_list(all_eligible_ids, vpn_account_ids)
     write_file(Config.get('General', 'output_path'), vpn_accounts_to_expire)
