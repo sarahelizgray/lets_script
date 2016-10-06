@@ -12,6 +12,7 @@ def get_ids_from_file(input_file):
 	with open(input_file, 'rb') as f:
 	    reader = csv.reader(f)
 	    users = list(reader)
+	# TODO do I need the first element?
 	return users[0]
 
 
