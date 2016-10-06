@@ -1,17 +1,17 @@
-# Let's script
+# Let's Script
 A tech talk in code I wish I had heard as a n00b. In this talk, we'll look at code and see how simple strategies like making methods in your scripts sets you up for success as your needs change.
 
 ## Prologue
 Let's start by talking about when to script. Script a solution when:
-* doing it by hand would be more labor intensive than writing the script (effort threshold)
+* script is just as labor intensive (or maybe just a bit more -- learning investment!) as doing it by hand.
 * if you are concerned about accuracy
 * if you will need to do this process again in the future.
 
 
 ## The Problem
-Before we begin, let's talk about the problem we are trying to solve in code. A college campus has two systems that don't talk to each other: a mail system and a VPN system. Everyone on campus has a unique email username, but not everyone has a VPN account. If you request a VPN account, one will be created using your email username and 'vpn-' prefix as your username. The mail system knows which graduates need to have their email addresses expired, but VPN doesn't.
+Before we begin, let's talk about the problem we are trying to solve in code. A college campus has two systems that don't talk to each other: a mail system and a VPN system. Everyone on campus has a unique email username, but not everyone has a VPN account. If you request a VPN account, one will be created using your email username and a 'vpn-' prefix as your username. We know which graduates need to have their email addresses expired, but we aren't sure which ones need to have their vpn account expired as well.
 
-Given a list of graduate userid and all VPN accounts, determine which vpn accounts also need to be expired.
+Given a list of graduate userids and all VPN accounts, determine which vpn accounts need to be expired.
 
 Other classes of students may need to be accounted for in the future like:
 * deans leave - email and VPN access for up to three years of leave (gap year etc)
