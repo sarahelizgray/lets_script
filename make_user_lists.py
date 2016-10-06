@@ -44,7 +44,7 @@ vpn_list = list(graduates_with_vpn + college_leave_with_vpn + deans_leave_with_v
 vpn_list = [ "vpn-" + username for username in vpn_list]
 
 #make the deans leave list
-leave_dates = [random.choice(['2011', '2012', '2013', '2014', '2015', '2016']) for student in deans_leave]
+leave_dates = [random.choice(range(2011,2017)) for student in deans_leave]
 leave_rows = [('name', 'year')] + zip(deans_leave, leave_dates)
 
 with open('lets_script/examples/deans_leave.csv', 'wb') as f:
