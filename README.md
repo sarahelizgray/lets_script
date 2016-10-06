@@ -18,7 +18,7 @@ Other classes of students may need to be accounted for in the future like:
 * college leave - email and VPN revoked after incident (having a still in your dorm room)
 
 # Set Up, To Play Along at Home
-# Install Requirements
+## Install Requirements
 
 ```
 #make the virtual env
