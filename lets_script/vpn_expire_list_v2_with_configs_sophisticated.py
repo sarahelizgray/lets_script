@@ -54,7 +54,6 @@ if __name__ == "__main__":
     Config.read(sys.argv[1])
 
     vpn_account_ids = get_ids_from_file(Config.get('VPN Accounts', 'path'))
-
     all_eligible_ids = get_all_eligible_ids(Config)
 
     vpn_accounts_to_expire = get_expire_list(all_eligible_ids, vpn_account_ids)
