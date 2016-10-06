@@ -24,7 +24,6 @@ echo With Configs Implementation 2
 rm lets_script/examples/vpn_accounts_to_expire_v2_with_configs.csv
 python lets_script/vpn_expire_list_v2_with_configs.py lets_script/configs/sample_1.cfg
 
-
-echo With Congis Sophisticated Implementation 2
+echo With Configs Sophisticated Implementation 2
 rm lets_script/examples/vpn_accounts_to_expire_v2_with_configs_sophisticated.csv
 python lets_script/vpn_expire_list_v2_with_configs_sophisticated.py lets_script/configs/sample_2.cfg

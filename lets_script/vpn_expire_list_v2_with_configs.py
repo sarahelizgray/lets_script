@@ -42,14 +42,12 @@ if __name__ == "__main__":
     vpn_account_ids = get_ids_from_file(Config.get('VPN Accounts', 'path'))
 
     all_eligible_ids = []
-    for student_category in ['Graduates', 'College Leave', 'Deans Leave']:
-        if Config.has_section(student_category):
-            if student_category == 'Deans Leave':
-                deans_leave_df = pd.read_csv(Config.get('Deans Leave', 'path'))
-                deans_leave_ids = get_eligible_deans_leave_ids(deans_leave_df, Config.get('Deans Leave', 'expiration_year'))
-                all_eligible_ids += deans_leave_ids
-            else:
-                all_eligible_ids += get_ids_from_file(Config.get(student_category, 'path'))
+    all_eligible_ids += get_ids_from_file(Config.get('Graduates', 'path'))
+    all_eligible_ids += get_ids_from_file(Config.get('College Leave', 'path'))
+
+    deans_leave_df = pd.read_csv(Config.get('Deans Leave', 'path'))
+    deans_leave_ids = get_eligible_deans_leave_ids(deans_leave_df, Config.get('Deans Leave', 'expiration_year'))
+    all_eligible_ids += deans_leave_ids
 
     vpn_accounts_to_expire = get_expire_list(all_eligible_ids, vpn_account_ids)
     write_file(Config.get('General', 'output_path'), vpn_accounts_to_expire)
