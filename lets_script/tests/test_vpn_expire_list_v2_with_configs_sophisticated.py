@@ -17,3 +17,8 @@ def test_get_eligible_deans_leave_ids():
     deans_leave_df = pd.read_csv(deans_leave_list)
     assert(expire_list.get_eligible_deans_leave_ids(
         deans_leave_df, '2014') == ['treynold', 'tjohns'])
+
+
+def test_get_all_eligible_ids():
+	# TODO set up fixtures and write test
+	pass
