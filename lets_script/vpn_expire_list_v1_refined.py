@@ -3,6 +3,10 @@
 
 import csv
 
+GRADUATES = "examples/graduates.csv"
+VPN_ACCOUNTS = "examples/vpn_list.csv"
+OUTPUT_FILE = "examples/vpn_accounts_to_expire_v1_refined.csv"
+
 def get_ids_from_file(input_file):
 	with open(input_file, 'rb') as f:
 	    reader = csv.reader(f)
@@ -10,14 +14,14 @@ def get_ids_from_file(input_file):
 	return users[0]
 
 vpn_accounts_to_expire = []
-graduate_user_ids = get_ids_from_file("lets_script/examples/graduates.csv")
-vpn_account_ids = get_ids_from_file("lets_script/examples/vpn_list.csv")
+graduate_user_ids = get_ids_from_file(GRADUATES)
+vpn_account_ids = get_ids_from_file(VPN_ACCOUNTS)
 
 for graduate in graduate_user_ids:
 	vpn_account_name = "vpn-{}".format(graduate)
 	if  vpn_account_name in vpn_account_ids:
 		vpn_accounts_to_expire.append(vpn_account_name)
 
-with open("lets_script/examples/vpn_accounts_to_expire_v1_refined.csv", "wb") as f:
+with open(OUTPUT_FILE, "wb") as f:
     writer = csv.writer(f)
     writer.writerow(vpn_accounts_to_expire)
