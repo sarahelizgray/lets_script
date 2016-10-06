@@ -32,6 +32,7 @@ def write_file(output_file, vpn_accounts_to_expire):
 
 
 def get_eligible_deans_leave_ids(deans_leave_df, year):
+	#TODO can I nuke the index lookup now that I have headers?
 	oldies = deans_leave_df[deans_leave_df.ix[:,1] <= int(year)]
 	return oldies.ix[:,0].tolist()
 
