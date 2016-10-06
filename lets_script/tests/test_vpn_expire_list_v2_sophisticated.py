@@ -12,7 +12,6 @@ def test_finds_matching_ids():
 
 
 def test_get_eligible_deans_leave_ids():
-    # TODO format this
     deans_leave_list = StringIO(
         "name,year\ntreynold,2011\ntjohns,2014\nathompso,2016")
     deans_leave_df = pd.read_csv(deans_leave_list)

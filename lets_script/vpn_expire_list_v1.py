@@ -11,10 +11,10 @@ with open('lets_script/examples/graduates.csv', 'rb') as f:
     reader = csv.reader(f)
     graduates = list(reader)
 
-vpn_accounts_to_expire = []
 graduate_user_ids = graduates[0]
 vpn_account_ids = vpn_accounts[0]
 
+vpn_accounts_to_expire = []
 for graduate in graduate_user_ids:
     vpn_account_name = "vpn-{}".format(graduate)
     if vpn_account_name in vpn_account_ids:

@@ -14,10 +14,10 @@ def get_ids_from_file(input_file):
         users = list(reader)
     return users[0]
 
-vpn_accounts_to_expire = []
 graduate_user_ids = get_ids_from_file(GRADUATES)
 vpn_account_ids = get_ids_from_file(VPN_ACCOUNTS)
 
+vpn_accounts_to_expire = []
 for graduate in graduate_user_ids:
     vpn_account_name = "vpn-{}".format(graduate)
     if vpn_account_name in vpn_account_ids:

@@ -32,7 +32,7 @@ deans_leave_index = college_leave_index + DEANS_LEAVE_COUNT
 graduates = all_accounts[:GRADUATE_COUNT]
 college_leave = all_accounts[GRADUATE_COUNT : college_leave_index]
 deans_leave = all_accounts[college_leave_index : deans_leave_index]
-noise = all_accounts[deans_leave_index:]	
+noise = all_accounts[deans_leave_index:]
 
 # make a subset of those students as vpn account holders
 graduates_with_vpn = random.sample(graduates, int(GRADUATE_COUNT * .3))
@@ -47,7 +47,6 @@ vpn_list = [ "vpn-" + username for username in vpn_list]
 leave_dates = [random.choice(['2011', '2012', '2013', '2014', '2015', '2016']) for student in deans_leave]
 leave_rows = [('name', 'year')] + zip(deans_leave, leave_dates)
 
-#TODO can I make this nicer?
 with open('lets_script/examples/deans_leave.csv', 'wb') as f:
     writer = csv.writer(f)
     for row in leave_rows:
@@ -62,5 +61,5 @@ csv_writer("lets_script/examples/vpn_list.csv", vpn_list)
 
 
 
-	
+
 
