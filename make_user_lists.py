@@ -46,6 +46,8 @@ vpn_list = [ "vpn-" + username for username in vpn_list]
 #make the deans leave list
 leave_dates = [random.choice(['2011', '2012', '2013', '2014', '2015', '2016']) for student in deans_leave]
 leave_rows = [('name', 'year')] + zip(deans_leave, leave_dates)
+
+#TODO can I make this nicer?
 with open('lets_script/examples/deans_leave.csv', 'wb') as f:
     writer = csv.writer(f)
     for row in leave_rows:
