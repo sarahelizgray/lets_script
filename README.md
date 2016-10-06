@@ -21,6 +21,10 @@ Other classes of students may need to be accounted for in the future like:
 # Install Requirements
 
 ```
+#make the virtual env
+virtualenv env
+
+# install required packages
 pip install -r requirements.txt
 ```
 
@@ -38,6 +42,7 @@ py.test
 ```
 
 ## Easy Peasy Execution of Examples
+Tune execution as needed.
 
 ```
 ./run.sh
