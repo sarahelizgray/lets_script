@@ -35,6 +35,7 @@ def get_eligible_deans_leave_ids(deans_leave_df, year):
     oldies = deans_leave_df[deans_leave_df['year'] <= int(year)]
     return oldies['name'].tolist()
 
+
 def get_all_eligible_ids(Config):
     all_eligible_ids = []
     for student_category in ['Graduates', 'College Leave', 'Deans Leave']:
