@@ -43,11 +43,18 @@ deans_leave_with_vpn = random.sample(deans_leave, int(DEANS_LEAVE_COUNT * .5))
 vpn_list = list(graduates_with_vpn + college_leave_with_vpn + deans_leave_with_vpn + noise)
 vpn_list = [ "vpn-" + username for username in vpn_list]
 
-# write out all 4 lists
-csv_writer("examples/graduates.csv", graduates)
-csv_writer("examples/college_leave.csv", college_leave)
-csv_writer("examples/deans_leave.csv", deans_leave)
-csv_writer("examples/vpn_list.csv", vpn_list)
+#make the deans leave list
+leave_dates = [random.choice(['2011', '2012', '2013', '2014', '2015', '2016']) for student in deans_leave]
+leave_rows = [('name', 'year')] + zip(deans_leave, leave_dates)
+with open('lets_script/examples/deans_leave.csv', 'wb') as f:
+    writer = csv.writer(f)
+    for row in leave_rows:
+    	writer.writerow(row)
+
+# write out other lists
+csv_writer("lets_script/examples/graduates.csv", graduates)
+csv_writer("lets_script/examples/college_leave.csv", college_leave)
+csv_writer("lets_script/examples/vpn_list.csv", vpn_list)
 
 
 
