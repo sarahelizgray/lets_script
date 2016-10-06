@@ -48,7 +48,7 @@ Tune execution as needed.
 ./run.sh
 ```
 
-# Take Aways by Script:
+# Take Aways by Script
 ## vpn_expire_list_v1
 * simple solution to the problem, but repetitive, no unit tests, not so configurable
 
