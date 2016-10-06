@@ -1,4 +1,4 @@
-# goal: given a list of graduates, a list of students on college leave, 
+# goal: given a list of graduates, a list of students on college leave,
 # a subset of students on deans leave
 # and a list of vpn account holders,
 # find which vpn accounts should be expired
@@ -32,9 +32,8 @@ def write_file(output_file, vpn_accounts_to_expire):
 
 
 def get_eligible_deans_leave_ids(deans_leave_df, year):
-	#TODO can I nuke the index lookup now that I have headers?
-	oldies = deans_leave_df[deans_leave_df.ix[:,1] <= int(year)]
-	return oldies.ix[:,0].tolist()
+	oldies = deans_leave_df[deans_leave_df['year'] <= int(year)]
+	return oldies['name'].tolist()
 
 if __name__ == "__main__":
 	Config = ConfigParser.ConfigParser()
@@ -46,7 +45,7 @@ if __name__ == "__main__":
 
 	deans_leave_df = pd.read_csv(Config.get('Deans Leave', 'path'))
 	deans_leave_ids = get_eligible_deans_leave_ids(deans_leave_df, Config.get('Deans Leave', 'expiration_year'))
-	
+
 	all_eligible_ids = graduate_user_ids + college_leave_ids + deans_leave_ids
 	vpn_accounts_to_expire = get_expire_list(all_eligible_ids, vpn_account_ids)
 	write_file(Config.get('General', 'output_path'), vpn_accounts_to_expire)
