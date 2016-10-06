@@ -3,8 +3,8 @@ A tech talk in code I wish I had heard as a n00b. In this talk, we'll look at co
 
 ## Prologue
 Let's start by talking about when to script. Script a solution when:
-* script is just as labor intensive (or maybe just a bit more -- learning investment!) as doing it by hand.
-* if you are concerned about accuracy
+* scripting is just as labor intensive (or maybe just a bit more -- learning investment!) as doing it by hand.
+* if you are concerned about accuracy.
 * if you will need to do this process again in the future.
 
 
