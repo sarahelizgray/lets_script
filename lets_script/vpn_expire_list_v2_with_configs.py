@@ -1,4 +1,4 @@
-# goal: given either a list of graduates, a list of students on college leave,
+# goal: given a list of graduates, a list of students on college leave,
 # a subset of students on deans leave,
 # and a list of vpn account holders,
 # find which vpn accounts should be expired
