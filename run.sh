@@ -21,5 +21,5 @@ rm lets_script/examples/vpn_accounts_to_expire_v2_refined.csv
 python lets_script/vpn_expire_list_v2_refined.py --graduates lets_script/examples/graduates.csv --vpn_accounts lets_script/examples/vpn_list.csv --output_file lets_script/examples/vpn_accounts_to_expire_v2_refined.csv --college_leave lets_script/examples/college_leave.csv
 
 echo Sophisticated Implementation 2
-rm lets_script/examples/vpn_accounts_to_expire_v2_sophisticated.csv 
+rm lets_script/examples/vpn_accounts_to_expire_v2_sophisticated.csv
 python lets_script/vpn_expire_list_v2_sophisticated.py lets_script/configs/sample.cfg
