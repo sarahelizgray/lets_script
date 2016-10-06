@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from StringIO import StringIO
-import lets_script.vpn_expire_list_v2_sophisticated as expire_list
+import lets_script.vpn_expire_list_v2_with_configs as expire_list
 
 
 def test_finds_matching_ids():
