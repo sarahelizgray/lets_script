@@ -12,7 +12,6 @@ def get_ids_from_file(input_file):
 	with open(input_file, 'rb') as f:
 	    reader = csv.reader(f)
 	    users = list(reader)
-	# TODO do I need the first element?
 	return users[0]
 
 
@@ -39,13 +38,17 @@ if __name__ == "__main__":
 	Config = ConfigParser.ConfigParser()
 	Config.read(sys.argv[1])
 
-	graduate_user_ids = get_ids_from_file(Config.get('Graduates', 'path'))
-	college_leave_ids = get_ids_from_file(Config.get('College Leave', 'path'))
 	vpn_account_ids = get_ids_from_file(Config.get('VPN Accounts', 'path'))
 
-	deans_leave_df = pd.read_csv(Config.get('Deans Leave', 'path'))
-	deans_leave_ids = get_eligible_deans_leave_ids(deans_leave_df, Config.get('Deans Leave', 'expiration_year'))
+	all_eligible_ids = []
+	for student_category in ['Graduates', 'College Leave', 'Deans Leave']:
+		if Config.has_section(student_category):
+			if student_category == 'Deans Leave':
+					deans_leave_df = pd.read_csv(Config.get('Deans Leave', 'path'))
+					deans_leave_ids = get_eligible_deans_leave_ids(deans_leave_df, Config.get('Deans Leave', 'expiration_year'))
+					all_eligible_ids += deans_leave_ids
+			else:
+				all_eligible_ids += get_ids_from_file(Config.get(student_category, 'path'))
 
-	all_eligible_ids = graduate_user_ids + college_leave_ids + deans_leave_ids
 	vpn_accounts_to_expire = get_expire_list(all_eligible_ids, vpn_account_ids)
 	write_file(Config.get('General', 'output_path'), vpn_accounts_to_expire)
