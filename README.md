@@ -37,6 +37,12 @@ python make_user_lists.py
 py.test
 ```
 
+## Easy Peasy Execution of Examples
+
+```
+./run.sh
+```
+
 # Take Aways by Script:
 ## vpn_expire_list_v1
 * simple solution to the problem, but repetitive, no unit tests, not so configurable
