@@ -16,9 +16,9 @@ graduate_user_ids = graduates[0]
 vpn_account_ids = vpn_accounts[0]
 
 for graduate in graduate_user_ids:
-	vpn_account_name = "vpn-{}".format(graduate)
-	if  vpn_account_name in vpn_account_ids:
-		vpn_accounts_to_expire.append(vpn_account_name)
+    vpn_account_name = "vpn-{}".format(graduate)
+    if vpn_account_name in vpn_account_ids:
+        vpn_accounts_to_expire.append(vpn_account_name)
 
 with open("lets_script/examples/vpn_accounts_to_expire_v1.csv", "wb") as f:
     writer = csv.writer(f)
