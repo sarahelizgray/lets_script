@@ -3,7 +3,7 @@
 # find which vpn accounts should be expired
 
 import csv
-import sys
+import argparse
 
 def get_ids_from_file(input_file):
 	with open(input_file, 'rb') as f:
@@ -28,14 +28,17 @@ def write_file(output_file, vpn_accounts_to_expire):
 
 
 if __name__ == "__main__":
-	graduates = sys.argv[1]
-	college_leave = sys.argv[2]
-	vpn_accounts = sys.argv[3]
-	output_file = sys.argv[4]
-	
-	graduate_user_ids = get_ids_from_file(graduates)
-	college_leave_ids = get_ids_from_file(college_leave)
-	vpn_account_ids = get_ids_from_file(vpn_accounts)
+	parser = argparse.ArgumentParser(description='get list of vpn accounts to expire')
+	parser.add_argument('--graduates', required=True, type=str, help='path to csv of graduate user ids')
+	parser.add_argument('--college_leave', required=True, type=str, help='path to csv of college leave user ids')
+	parser.add_argument('--vpn_accounts', required=True, type=str, help='path to csv of vpn user ids')
+	parser.add_argument('--output_file', required=True, type=str, help='name of outputfile')
+
+	args = parser.parse_args()
+
+	graduate_user_ids = get_ids_from_file(args.graduates)
+	college_leave_ids = get_ids_from_file(args.college_leave)
+	vpn_account_ids = get_ids_from_file(args.vpn_accounts)
 
 	vpn_accounts_to_expire = get_expire_list(graduate_user_ids + college_leave_ids, vpn_account_ids)
-	write_file(output_file, vpn_accounts_to_expire)
+	write_file(args.output_file, vpn_accounts_to_expire)
